@@ -65,6 +65,10 @@ table.minimalistBlack tfoot td {
 .total {
 	text-align: center;
 }
+.resetBtn {
+	text-align: center;
+	align: center;
+}
 </style>
 <script type="text/javascript">
 function calcTime(){
@@ -165,10 +169,28 @@ function calcTime(){
 	document.getElementById("3_t").innerHTML = th.toFixed(2) + " hours";
 	document.getElementById("4_t").innerHTML = td.toFixed(2) + " days";
 }
+
+function resetCalc(){
+	document.getElementById("2_1m").value = 0;
+	document.getElementById("2_3m").value = 0;
+	document.getElementById("2_15m").value = 0;
+	document.getElementById("2_30m").value = 0;
+	document.getElementById("2_1h").value = 0;
+	document.getElementById("2_3h").value = 0;
+	document.getElementById("2_12h").value = 0;
+	document.getElementById("2_24h").value = 0;
+	document.getElementById("2_48h").value = 0;
+	
+	//populate footers
+
+//	document.getElementById("2_t").innerHTML = tt.toFixed(2) + " timers";
+//	document.getElementById("3_t").innerHTML = th.toFixed(2) + " hours";
+//	document.getElementById("4_t").innerHTML = td.toFixed(2) + " days";
+	calcTime();
+}
 </script>
 </head>
 <body>
-
 	<table class="minimalistBlack">
 		<thead>
 			<tr>
@@ -192,7 +214,7 @@ function calcTime(){
 			<tr>
 				<td id="1_3h">3 hr.</td><td class="invCol"><input class="inputTimer" type="number" id="2_3h" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_3h" class="calcColumn"></td><td id="4_3h" class="calcColumn"></td></tr>
 			<tr>
-				<td id="1_12h">12 hr.</td><td class="invCol"><input class="inputTimer" type="number" id="2_12h" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_12h" class="calcColumn"></td><<td id="4_12h" class="calcColumn"></td></tr>
+				<td id="1_12h">12 hr.</td><td class="invCol"><input class="inputTimer" type="number" id="2_12h" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_12h" class="calcColumn"></td><td id="4_12h" class="calcColumn"></td></tr>
 			<tr>
 				<td id="1_24h">24 hr.</td><td class="invCol"><input class="inputTimer" type="number" id="2_24h" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_24h" class="calcColumn"></td><td id="4_24h" class="calcColumn"></td></tr>
 			<tr>
@@ -204,6 +226,9 @@ function calcTime(){
 				<td id="2_t" class="total">0 timers</td>
 				<td id="3_t" class="total">0 hours</td>
 				<td id="4_t" class="total">0 days</td>
+			</tr>
+			<tr>
+				<td colspan="4" class="resetBtn"><input type="button" value="Reset" onclick="resetCalc();" onkeyup="resetCalc();" /></td>
 			</tr>
 		</tfoot>
 		</tr>
